@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>King Mods Key Generator</title>
+
+<style>
+body{
+    background:#0b0b0b;
+    color:#00ff99;
+    font-family:Arial;
+    text-align:center;
+    padding-top:60px;
+}
+
+img{
+    width:150px;
+    display:block;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+h1{
+    margin-bottom:25px;
+}
+
+button{
+    padding:12px 28px;
+    font-size:16px;
+    background:#00ff99;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+#keyBox{
+    display:none;
+    margin-top:20px;
+}
+
+#key{
+    font-size:22px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- الصورة -->
+<img src="logo.png">
+
+<!-- الاسم -->
+<h1>KING MODS</h1>
+
+<!-- زر التوليد -->
+<button id="genBtn" onclick="generateKey()">توليد مفتاح</button>
+
+<!-- مكان المفتاح -->
+<div id="keyBox">
+    <div id="key"></div>
+    <button onclick="copyKey()">نسخ</button>
+</div>
+
+<script>
+function generateKey(){
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let r = "";
+    for(let i=0;i<5;i++){
+        r += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    document.getElementById("key").innerText = "King_Mods_" + r;
+
+    // إخفاء زر التوليد
+    document.getElementById("genBtn").style.display = "none";
+
+    // إظهار المفتاح وزر النسخ
+    document.getElementById("keyBox").style.display = "block";
+}
+
+function copyKey(){
+    const text = document.getElementById("key").innerText;
+    navigator.clipboard.writeText(text);
+    alert("تم نسخ المفتاح ✅");
+}
+</script>
+
+</body>
+</html>
